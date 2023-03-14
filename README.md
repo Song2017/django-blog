@@ -7,7 +7,7 @@ Blog app based on Django framework, running: http://blog.sjgo.online
 - run `docker run -it -p 8080:8080 -e PG_CONN='blog user pass 139.196.1.1 5432' test`
 - Product server: Nginx serve static files and proxy requests to web server;  
 Gunicorn handle server requests
-
+- Function compute server: django develop server
 
 # Django
 ## develop

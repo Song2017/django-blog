@@ -1,6 +1,9 @@
-FROM python:3.9.16-slim-buster
+# FROM python:3.9.16-slim
+FROM python:3.9.16-alpine
 
 LABEL maintainer="Songgs<bensong2017@hotmail.com>"
+# https://stackoverflow.com/questions/45594707/what-is-pips-no-cache-dir-good-for
+ENV PIP_NO_CACHE_DIR=1
 
 ARG PG_CONF=''
 ARG AREA=china
@@ -25,11 +28,11 @@ EXPOSE 8080
 RUN set -ex \
     && mkdir -p .pip  \
     && if [ 'china' = "$AREA" ] ; then \
-      pip3 install -i https://pypi.douban.com/simple/ --upgrade pip; \
-      pip3 install -i https://pypi.douban.com/simple/ -r requirements.txt; \
+#       pip3 install -i https://pypi.douban.com/simple/ --upgrade pip; \
+      pip3 install -i https://pypi.douban.com/simple/ --no-cache-dir -r requirements.txt; \
     else \
-      pip3 install --upgrade pip; \
-      pip3 install -r requirements.txt; \
+#       pip3 install --upgrade pip; \
+      pip3 install -r --no-cache-dir requirements.txt; \
     fi
 # product server
 # ENTRYPOINT ["sh", "/app/bin/entrypoint.sh"]

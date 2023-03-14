@@ -22,8 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zlp_%w#g8dmr(odc2n9j+&1x9m571(+bn)i8f-=w2x8xni^f(q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = os.getenv("DEBUG") or True
+print("debug", DEBUG, type(DEBUG))
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
@@ -74,10 +74,7 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-
 pg_cons = os.getenv("PG_CONN", "name user pass host 9002").split()
-
 DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
@@ -86,10 +83,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         # # https://docs.djangoproject.com/zh-hans/4.1/ref/databases/
-        # 'OPTIONS': {
-        #     'service': 'my_service',
-        #     'passfile': '139.196.213.108:9002:user:pass',
-        # },
         'NAME': pg_cons[0],
         'USER': pg_cons[1],
         'PASSWORD': pg_cons[2],

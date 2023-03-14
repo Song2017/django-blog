@@ -5,7 +5,7 @@ Blog app based on Django framework, running: http://blog.sjgo.online
 # Docker
 - build `docker build -t test -f ./bin/Dockerfile .`
 - run `docker run -it -p 8080:8080 -e PG_CONN='blog user pass 139.196.1.1 5432' test`
-- Server: Nginx serve static files and redirect requests to web server;  
+- Product server: Nginx serve static files and proxy requests to web server;  
 Gunicorn handle server requests
 
 
@@ -18,9 +18,6 @@ https://docs.djangoproject.com/en/4.1/intro/tutorial01/
 set up the database, create your first model, 
 and get a quick introduction to Django’s automatically-generated admin site
 https://docs.djangoproject.com/en/4.1/intro/tutorial02/
-## upgrade-version
-https://docs.djangoproject.com/en/4.1/howto/upgrade-version
-`python -Wa manage.py test`
 ```
 ## db migration
 ```
@@ -32,11 +29,13 @@ https://docs.djangoproject.com/en/4.1/howto/upgrade-version
 First we’ll need to create a user who can login to the admin site. Run the following command:
 http://127.0.0.1:8000/admin/; admin/admin123; 
 `python manage.py createsuperuser`
+```
+## upgrade-version
+https://docs.djangoproject.com/en/4.1/howto/upgrade-version
+`python -Wa manage.py test`
 ## Static files (CSS, JavaScript, Images)
 https://docs.djangoproject.com/en/3.2/howto/static-files/
 `python manage.py collectstatic`
-```
-
 
 # Poetry
 https://python-poetry.org/docs/cli/#init

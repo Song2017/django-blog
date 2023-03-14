@@ -1,0 +1,4 @@
+django==4.1.7 ; python_full_version == "3.9.16"
+markdown==3.4.1 ; python_full_version == "3.9.16"
+gunicorn==19.9.0
+psycopg2-binary==2.9.5

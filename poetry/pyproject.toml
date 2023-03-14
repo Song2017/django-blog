@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "sj"
+version = "0.1.0"
+description = "website with django"
+authors = ["Ben Song <ben.song@samarkand.global>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.9.16"
+Django = "^4.1.7"
+markdown = "^3.4.1"
+
+[[tool.poetry.source]]
+name = "douban"
+url = "https://pypi.doubanio.com/simple"
+default = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

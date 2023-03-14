@@ -18,4 +18,8 @@ urlpatterns = [
             views.CategoryView.as_view(),
             name="category"),
     re_path(r"^tag/(?P<pk>[0-9]+)/$", views.TagView.as_view(), name="tag"),
+
+    re_path(r"^comment/post/(?P<post_pk>[0-9]+)/$",
+            views.post_comment,
+            name="post_comment"),
 ]

@@ -10,6 +10,11 @@ class PostAdmin(admin.ModelAdmin):
     ]
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ["name", "email", "url", "text", "post"]
+
+
 admin.site.register(Category)
 admin.site.register(Tag)
 admin.site.register(Post, PostAdmin)
+admin.site.register(Comment, CommentAdmin)

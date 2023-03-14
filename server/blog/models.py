@@ -98,7 +98,19 @@ class Post(models.Model):
             # 先将 Markdown 文本渲染成 HTML 文本
             # strip_tags 去掉 HTML 文本的全部 HTML 标签
             # 从文本摘取前 54 个字符赋给 excerpt
-            self.excerpt = strip_tags(md.convert(self.body))[:54]
+            self.excerpt = strip_tags(md.convert(str(self.body)))[:54]
 
         # 调用父类的 save 方法将数据保存到数据库中
         super(Post, self).save(*args, **kwargs)
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=255)
+    url = models.URLField(blank=True)
+    text = models.TextField()
+    created_time = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.text[:20]

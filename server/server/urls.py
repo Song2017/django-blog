@@ -20,9 +20,8 @@ from blog.feeds import AllPostsRssFeed
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('admin/', admin_site.urls),
 
     path("", include("blog.urls")),
-    path(r"", include("comment.urls")),
+    # path(r"", include("comment.urls")),
     re_path(r"^all/rss/$", AllPostsRssFeed(), name="rss"),
 ]

@@ -41,4 +41,8 @@ https://docs.djangoproject.com/en/3.2/howto/static-files/
 https://python-poetry.org/docs/cli/#init
 poetry init
 poetry shell
+
+# Todo
+### auth-web-requests
+https://docs.djangoproject.com/zh-hans/4.1/topics/auth/default/#auth-web-requests
  

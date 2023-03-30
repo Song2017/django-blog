@@ -1,15 +1,15 @@
-from django.shortcuts import render
 from django.views.generic import ListView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Tool
 
 
 # Create your views here.
-class IndexView(ListView):
+class IndexView(LoginRequiredMixin, ListView):
     model = Tool
     template_name = "tool/index.html"
     context_object_name = "tool_items"
     paginate_by = 5
+    login_url = '/admin/login'
 
     def get_context_data(self, **kwargs):
         """
@@ -37,7 +37,3 @@ class IndexView(ListView):
         # 将更新后的 context 返回，以便 ListView 使用这个字典中的模板变量去渲染模板。
         # 注意此时 context 字典中已有了显示分页导航条所需的数据。
         return context
-
-
-def tool_name():
-    return "tool_name"

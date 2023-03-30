@@ -40,6 +40,9 @@ class Post(models.Model):
     ariticle post
     """
 
+    class Meta:
+        ordering = ["created_time"]
+
     # 文章标题
     title = models.CharField(max_length=70)
 

@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path("", include("blog.urls")),
-    # path(r"", include("comment.urls")),
+    path(r"", include("tool.urls")),
     re_path(r"^all/rss/$", AllPostsRssFeed(), name="rss"),
 ]

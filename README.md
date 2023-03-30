@@ -21,10 +21,10 @@ https://docs.djangoproject.com/en/4.1/intro/tutorial02/
 ```
 ## db migration
 ```
-- The migrate command looks at the INSTALLED_APPS setting and creates any necessary database tables
-`python manage.py migrate`
 - By running makemigrations, you’re telling Django that you’ve made some changes to your models
 `python manage.py makemigrations blog`
+- The migrate command looks at the INSTALLED_APPS setting and creates any necessary database tables
+`python manage.py migrate`
 - Creating an admin user
 First we’ll need to create a user who can login to the admin site. Run the following command:
 http://127.0.0.1:8000/admin/; admin/admin123; 

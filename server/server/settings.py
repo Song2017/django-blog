@@ -23,7 +23,7 @@ SECRET_KEY = 'django-insecure-zlp_%w#g8dmr(odc2n9j+&1x9m571(+bn)i8f-=w2x8xni^f(q
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") or True
-print("debug", DEBUG, type(DEBUG))
+# print("debug", DEBUG, type(DEBUG))
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    # 'comment',
+    'tool',
     # 'user',
 ]
 

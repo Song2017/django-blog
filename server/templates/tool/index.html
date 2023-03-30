@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sprite</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}">
+    <!-- js -->
+    <script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+</head>
+
+<body>
+    <div class="container">
+        <header id="site-header">
+            Tools
+        </header>
+    {% for item in tool_items %}
+        <article class="item item-{{ item.id }}">
+            <header class="entry-header">
+                <h1 class="entry-title">
+                    <a href="#">{{ item.name }}</a>
+                </h1>
+                <div class="entry-meta">
+                    <span class="post-category"><a href="#">{{ item.text }}</a></span>
+                </div>
+            </header>
+        </article>
+    {% endfor %}
+    </div>
+
+    <div class="copyrights"><a href="http://www.beian.miit.gov.cn/">沪ICP备19023181号-1</a></div>
+    <div class="copyrights">Collect from<a href="http://www.cssmoban.com/">网页模板</a></div>
+    <div class="copyrights">Modified by <a href="http://blog.sjgo.online/">Sprite小站</a></div>
+
+    <div class="content-body">
+        <div class="container">
+            container
+        </div>
+    </div>
+    <footer id="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="copyright">&copy 2019 - <a href="http://www.beian.miit.gov.cn/">沪ICP备19023181号-1 </a>
+                        - <a href="http://blog.sjgo.online/">Sprite的小站</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="overlay overlay-hugeinc">
+        <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+
+    </div>
+
+<!--    <script src="{% static 'blog/js/script.js' %}"></script>-->
+
+</body>
+
+</html>

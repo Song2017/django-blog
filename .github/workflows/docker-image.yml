@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    runs-on: [ "self-hosted", "linux" ]
+    env:
+      registry_pass: ${{ secrets.CLOUD_ALI_REGISTRY_PASS }}
+      registry_host: "registry.cn-shanghai.aliyuncs.com"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+#        with:
+#          repository: Song2017/cbec-space
+#          fetch-depth: 0
+      - name: Build the Docker image
+        run: docker build -f deploy/server/Dockerfile --tag ${{ env.registry_host }}/song_2020/blog:${{ github.sha }} .
+      - name: Login cloud registry
+        run: docker login --username=songgs2019 -p ${{env.registry_pass}} registry.cn-shanghai.aliyuncs.com
+      - name: Push image
+        run: docker push ${{ env.registry_host }}/song_2020/blog:${{ github.sha }}

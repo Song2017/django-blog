@@ -1,5 +1,5 @@
 # Django - Blog
-Blog app based on Django framework, running: http://blog.sjgo.online
+Blog app based on Django framework, running: https://blog.sjgo.online
 
 
 # Docker

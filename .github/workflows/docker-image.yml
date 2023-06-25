@@ -19,6 +19,6 @@ jobs:
       - name: Build the Docker image
         run: docker build -f deploy/server/Dockerfile --tag ${{ env.registry_host }}/song_2020/blog:${{ github.sha }} .
       - name: Login cloud registry
-        run: docker login --username=songgs2019 -p ${{env.registry_pass}} registry.cn-shanghai.aliyuncs.com
+        run: docker login --username=songgs2019 -p ${{env.registry_pass}} ${{env.registry_host}}
       - name: Push image
         run: docker push ${{ env.registry_host }}/song_2020/blog:${{ github.sha }}

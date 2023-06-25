@@ -1,6 +1,6 @@
 # Django - Blog
-Blog app based on Django framework, running: http://blog.sjgo.online
-
+Blog app based on Django framework, running: https://blog.sjgo.online
+Run django server in default 
 
 # Docker
 - build `docker build -t test -f ./bin/Dockerfile .`

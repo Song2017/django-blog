@@ -11,7 +11,6 @@ ARG AREA=china
 COPY . /app
 
 WORKDIR /app
-EXPOSE 8080
 
 # Install Supervisord, nginx mirrors.huaweicloud.com
 # nginx serve static files
@@ -38,5 +37,6 @@ RUN set -ex \
 # ENTRYPOINT ["sh", "/app/bin/entrypoint.sh"]
 # CMD["bash"]
 
+EXPOSE 8080
 # fc server
-ENTRYPOINT ["sh", "/app/bin/run_server_fc.sh"]Z
+ENTRYPOINT ["sh", "/app/deploy/server/run_server_fc.sh"]Z

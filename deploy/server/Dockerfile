@@ -28,7 +28,7 @@ RUN set -ex \
     && mkdir -p .pip  \
     && if [ 'china' = "$AREA" ] ; then \
 #       pip3 install -i https://pypi.douban.com/simple/ --upgrade pip; \
-      pip3 install -i https://pypi.douban.com/simple/ --no-cache-dir -r requirements.txt; \
+      pip3 install -i https://mirrors.aliyun.com/pypi/simple --no-cache-dir -r requirements.txt; \
     else \
 #       pip3 install --upgrade pip; \
       pip3 install -r --no-cache-dir requirements.txt; \

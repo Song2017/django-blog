@@ -41,7 +41,7 @@ class Post(models.Model):
     """
 
     class Meta:
-        ordering = ["created_time"]
+        ordering = ["-modified_time"]
 
     # 文章标题
     title = models.CharField(max_length=70)

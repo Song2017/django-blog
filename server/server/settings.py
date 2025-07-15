@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-zlp_%w#g8dmr(odc2n9j+&1x9m571(+bn)i8f-=w2x8xni^f(q
 DEBUG = os.getenv("DEBUG") or True
 # print("debug", DEBUG, type(DEBUG))
 ALLOWED_HOSTS = ["*"]
-
+CSRF_TRUSTED_ORIGINS = ["https://*.sjgo.online"]
 # Application definition
 
 INSTALLED_APPS = [

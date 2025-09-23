@@ -13,7 +13,7 @@ class IndexView(ListView):
     template_name = "blog/index.html"
     context_object_name = "post_list"
     # 指定 paginate_by 属性后开启分页功能，其值代表每一页包含多少篇文章
-    paginate_by = 5
+    paginate_by = 8
 
     def get_context_data(self, **kwargs):
         """
@@ -47,7 +47,8 @@ class IndexView(ListView):
         # 注意此时 context 字典中已有了显示分页导航条所需的数据。
         return context
 
-    def pagination_data(self, paginator, page, is_paginated):
+    @staticmethod
+    def pagination_data(paginator, page, is_paginated):
         if not is_paginated:
             # 如果没有分页，则无需显示分页导航条，不用任何分页导航条的数据，因此返回一个空的字典
             return {}
@@ -93,7 +94,7 @@ class IndexView(ListView):
             # 比如分页页码列表是 [1, 2, 3, 4]，那么获取的就是 left = [2, 3]
             # 这里只获取了当前页码后连续两个页码，你可以更改这个数字以获取更多页码。
             left = page_range[(page_number - 3) if (
-                page_number - 3) > 0 else 0:page_number - 1]
+                                                           page_number - 3) > 0 else 0:page_number - 1]
 
             # 如果最左边的页码号比第 2 页页码号还大，
             # 说明最左边的页码号和第 1 页的页码号之间还有其它页码，因此需要显示省略号，通过 left_has_more 来指示。
@@ -108,7 +109,7 @@ class IndexView(ListView):
             # 用户请求的既不是最后一页，也不是第 1 页，则需要获取当前页左右两边的连续页码号，
             # 这里只获取了当前页码前后连续两个页码，你可以更改这个数字以获取更多页码。
             left = page_range[(page_number - 3) if (
-                page_number - 3) > 0 else 0:page_number - 1]
+                                                           page_number - 3) > 0 else 0:page_number - 1]
             right = page_range[page_number:page_number + 2]
 
             # 是否需要显示最后一页和最后一页前的省略号
@@ -254,6 +255,7 @@ def post_comment(request, post_pk):
             return render(request, "blog/detail.html", context=context)
     # 不是 post 请求，说明用户没有提交数据，重定向到文章详情页
     return redirect(post)
+
 
 """
 # Create your views here.

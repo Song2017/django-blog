@@ -1,5 +1,5 @@
 # FROM python:3.9.16-slim
-FROM python:3.9.16-alpine
+FROM registry.cn-shanghai.aliyuncs.com/public_00/python:3.9-slim
 
 LABEL maintainer="Songgs<bensong2017@hotmail.com>"
 # https://stackoverflow.com/questions/45594707/what-is-pips-no-cache-dir-good-for
@@ -39,4 +39,4 @@ RUN set -ex \
 
 EXPOSE 8080
 # fc server
-ENTRYPOINT ["sh", "/app/deploy/server/run_server_fc.sh"]Z
+ENTRYPOINT ["sh", "/app/deploy/server/run_server_fc.sh"]
